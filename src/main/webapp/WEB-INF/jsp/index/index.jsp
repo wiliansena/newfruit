@@ -12,8 +12,10 @@
         <title>Gerenciador de Usuários</title>
     </head>
     <body>
+        <div>
         <h1>Ações</h1>
         <a href="${pageContext.request.contextPath}/produto/novo">Novo Produto</a>
         <a href="${pageContext.request.contextPath}/produto/lista">Listar Produtos</a>
-    </body>
+    </div>
+        </body>
 </html>

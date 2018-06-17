@@ -1,26 +1,20 @@
 <%-- 
-    Document   : listadeProdutos
-    Created on : 14/06/2018, 11:27:32
+    Document   : produtoBuscado
+    Created on : 16/06/2018, 10:15:25
     Author     : Wilian
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista de Produtos</title>
+        <title>Produto Buscado</title>
     </head>
     <body>
-        <form action="${pageContext.request.contextPath}/lista" method="post">
-            <label for="inputField">Pesquisar</label>
-            <input id="inputField" type="text" name="query">
-            <a href="${pageContext.request.contextPath}/produto/buscar/${produto.codbarra}">Buscar</a>
-        </form>
         <c:choose>
-            <c:when test="${produtoList.size() eq 0}"> 
-                <p>Não há Produtos cadastrados!</p>
+            <c:when test="${produtoBuscado.size() eq 0}"> 
+                <p>Produto não encontrado!</p>
             </c:when>
             <c:otherwise>
                 <table border="1" style="margin-top: 10px;">
@@ -36,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${produtoList}" var="produto">
+                        <c:forEach items="${produtoBuscado}" var="produto">
                             <tr>
                                 <td>${produto.categoria}</td> 
                                 <td>${produto.codbarra}</td>
@@ -56,6 +50,6 @@
                 </table>    
             </c:otherwise>    
         </c:choose>  
+            
     </body>
-
 </html>

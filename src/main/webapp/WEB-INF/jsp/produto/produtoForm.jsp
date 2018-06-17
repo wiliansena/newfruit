@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +14,9 @@
     </head>
     <body>
         <h1>Cadastro de Produtos</h1>
+        <ul class="errors">
+       <p>${msgError}</p>
+       <p>${msgOk}</p>
         <form action="${pageContext.request.contextPath}/produto/salvar" method="post">
 
             <p>categoria</p>
@@ -41,6 +45,9 @@
             <br/>
             <p>Referencia: </p>
             <input type="text" name="produto.referencia"/>
+            <br/>
+            <p>Quantidade: </p>
+            <input type="text" name="produto.quantidade"/>
             <br/>
             <button type="submit">Salvar</button>
         </form>

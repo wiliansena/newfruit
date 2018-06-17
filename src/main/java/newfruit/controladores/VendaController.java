@@ -9,6 +9,10 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Result;
+import javax.inject.Inject;
+import newfruit.modelo.produto.Produto;
+import static newfruit.modelo.produto.Produto_.codbarra;
 import newfruit.modelo.venda.Venda;
 import newfruit.repositorio.dao.VendaRepositorio;
 
@@ -20,7 +24,8 @@ import newfruit.repositorio.dao.VendaRepositorio;
 @Path("venda")
 public class VendaController {
     private VendaRepositorio vendaRepositorio = new VendaRepositorio();
-    
+     @Inject
+    private Result result;
     @Get("novo")
    public void vendaForm(){
    
@@ -31,7 +36,7 @@ public class VendaController {
        System.out.println("Passou aqui " + venda.getDescricao());
       vendaRepositorio.salvarVenda(venda);
    } 
-    
+ 
 }
 
 

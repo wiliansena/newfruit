@@ -43,6 +43,10 @@
             <p>Referencia: </p>
             <input type="text" name="produto.referencia" value="${produto.referencia}"/>
             <br/>
+            <p>Referencia: </p>
+             <input type="text" name="produto.quantidade" value="${produto.quantidade}"/>
+            <br/>
+            <br/>
             <button type="submit">Atualizar</button>
         </form>
 </html>

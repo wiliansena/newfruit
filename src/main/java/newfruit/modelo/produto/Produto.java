@@ -27,12 +27,14 @@ public class Produto implements Serializable {
     private String nome;
     @Column(nullable = false)
     private String codbarra;
-    @Column(nullable = false)
+    
     private String referencia;
-    @Column(nullable = false)
+   
     private String descricao;
     @Column(nullable = false)
     private String preco;
+     @Column(nullable = false)
+    private Integer quantidade;
 
     @PrePersist
     public void gerarID() {
@@ -94,5 +96,14 @@ public class Produto implements Serializable {
     public void setPreco(String preco) {
         this.preco = preco;
     }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
 
 }
