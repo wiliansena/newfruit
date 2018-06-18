@@ -10,14 +10,10 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.validator.Message;
-import br.com.caelum.vraptor.validator.Validator;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
-import javax.servlet.jsp.tagext.ValidationMessage;
 import newfruit.modelo.produto.Produto;
-import static newfruit.modelo.produto.Produto_.codbarra;
 import newfruit.repositorio.dao.ProdutoRepositorio;
 
 /**
@@ -33,34 +29,34 @@ public class ProdutoController implements Serializable {
     @Inject
     private Result result;
     @Inject
-    private Validator validator;
+    //private Validator validator;
 
     @Get("novo")
     public void produtoForm() {
 
     }
+    @Get("buscar")
+    public void listaBuscar(){
+
+}
 
     @Post("salvar")
     public void salvar(Produto produto) {
         if (produto.getCategoria() == null) {
             result.include("msgError", "Campo CATEGORIA é OBRIGATÓRIO!");
             result.redirectTo(this).produtoForm();
-            if (produto.getNome() == null) {
-                result.include("msgError", "Campo NOME é OBRIGATÓRIO!");
-                result.redirectTo(this).produtoForm();
-            }
-            if (produto.getCodbarra() == null) {
-                result.include("msgError", "Campo CÓDIGO DE BARRAS é OBRIGATÓRIO!");
-                result.redirectTo(this).produtoForm();
-            }
-            if (produto.getPreco() == null) {
-                result.include("msgError", "Campo PREÇO é OBRIGATÓRIO!");
-                result.redirectTo(this).produtoForm();
-            }
-            if (produto.getQuantidade() == null) {
-                result.include("msgError", "Campo QUANTIDADE é OBRIGATÓRIO!");
-                result.redirectTo(this).produtoForm();
-            }
+        } else if (produto.getCodbarra() == null) {
+            result.include("msgError", "Campo CODIGO DE BARRAS é OBRIGATÓRIO!");
+            result.redirectTo(this).produtoForm();
+        } else if (produto.getNome() == null) {
+            result.include("msgError", "Campo NOME é OBRIGATÓRIO!");
+            result.redirectTo(this).produtoForm();
+        } else if (produto.getPreco() == null) {
+            result.include("msgError", "Campo PREÇO é OBRIGATÓRIO!");
+            result.redirectTo(this).produtoForm();
+        } else if (produto.getQuantidade() == null) {
+            result.include("msgError", "Campo QUANTIDADE é OBRIGATÓRIO!");
+            result.redirectTo(this).produtoForm();
         } else {
             produtoRepositorio.SalvarProduto(produto);
 
@@ -70,12 +66,19 @@ public class ProdutoController implements Serializable {
         }
     }
 
-    @Get("buscar/{codbarra}")
-    public void buscar(String codbarra
-    ) {
+    //@Get("produtoBuscado.jsp/{codbarra}")
+    //public void listaBusca(String codbarra) {
+    //    List lista = produtoRepositorio.buscar("123456");
+      //  result.include("produtoBuscado", lista);
+       // System.out.println("o produto foi buscado");
+
+    //}
+    
+    @Get("produtoBuscado/{codbarra}")
+    public void produtoBuscado(String codbarra) {
         Produto produto = produtoRepositorio.buscarPorCodBarra(codbarra);
         result.include("produtoBuscado", produto);
-        System.out.println(produto);
+        System.out.println("o produto foi buscado");
 
     }
 

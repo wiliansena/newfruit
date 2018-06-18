@@ -1,7 +1,7 @@
 <%-- 
-    Document   : produtoForm
-    Created on : 18/10/2007, 00:30:27
-    Author     : Wilian
+    Document   : cadastro
+    Created on : 17/06/2018, 17:36:09
+    Author     : julio
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,7 +10,7 @@
 <html>
 <head>
 <script>
-function save(){
+function salvar(){
 
 alert("Produto cadastrado");
 
@@ -22,16 +22,16 @@ alert("Produto cadastrado");
 <link rel="stylesheet" type="text/css" href="css/materialize.css"/>
 
 
-<title>Cadastro de Produto</title>
+<title>Cadastro</title>
 
 
 </head>
-<body style="background-image:url('fundo.jpeg');">
+<body style="background-image:url('fundo.jpg');">
 <nav>
     <div class="nav-wrapper  blue">
       <a href="#!" class="brand-logo"><i class="material-icons">dashboard</i>Cadastro</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/NewFruit/"><i class="material-icons">exit_to_app</i></a></li>
+        <li><a href="index"><i class="material-icons">exit_to_app</i></a></li>
       </ul>
     </div>
   </nav>
@@ -81,8 +81,7 @@ alert("Produto cadastrado");
         </tbody>
       </table><br><br><br>
 	  <center>
-	  <button type="submit" class="btn waves-effect blue" onclick="save()">Salvar</button>
-             
+	  <button class="btn waves-effect blue" type="submit" name="action" onclick="salvar()">Salvar
     <i class="material-icons right">assignment_turned_in</i>
   </button>
   <button class="btn waves-effect blue" type="reset" name="action">limpar

@@ -23,17 +23,13 @@ public class Produto implements Serializable {
     private String id;
     @Column(nullable = false)
     private String categoria;
-    @Column(nullable = false)
+    @Column(name = "nome", unique = true)
     private String nome;
-    @Column(nullable = false)
+    @Column(name = "codbarra", unique = true)
     private String codbarra;
-    
-    private String referencia;
-   
-    private String descricao;
     @Column(nullable = false)
     private String preco;
-     @Column(nullable = false)
+    @Column(nullable = false)
     private Integer quantidade;
 
     @PrePersist
@@ -73,22 +69,6 @@ public class Produto implements Serializable {
         this.codbarra = codbarra;
     }
 
-    public String getReferencia() {
-        return referencia;
-    }
-
-    public void setReferencia(String referencia) {
-        this.referencia = referencia;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public String getPreco() {
         return preco;
     }
@@ -104,6 +84,5 @@ public class Produto implements Serializable {
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
-
 
 }

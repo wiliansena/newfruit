@@ -5,16 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Produto Buscado</title>
+        <title>Lista de Produtos</title>
     </head>
     <body>
         <c:choose>
             <c:when test="${produtoBuscado.size() eq 0}"> 
-                <p>Produto não encontrado!</p>
+                <p>Não há Produtos cadastrados!</p>
             </c:when>
             <c:otherwise>
                 <table border="1" style="margin-top: 10px;">
@@ -22,10 +23,10 @@
                         <tr>
                             <th>Categoria</th>
                             <th>Codigo de barra</th>
-                            <th>Descricao</th>
+                            
                             <th>Nome</th>
                             <th>Preço</th>
-                            <th>Referencia</th>
+                            
                             <th>Quantidade</th>
                         </tr>
                     </thead>
@@ -34,10 +35,10 @@
                             <tr>
                                 <td>${produto.categoria}</td> 
                                 <td>${produto.codbarra}</td>
-                                <td>${produto.descricao}</td>
+                                
                                 <td>${produto.nome}</td> 
                                 <td>${produto.preco}</td>
-                                <td>${produto.referencia}</td>
+                                
                                 <td>${produto.quantidade}</td> 
                                 <td>
                                     <a href="${pageContext.request.contextPath}/produto/editar/${produto.codbarra}">Editar</a> ||
@@ -50,6 +51,7 @@
                 </table>    
             </c:otherwise>    
         </c:choose>  
-            
+       
     </body>
+
 </html>

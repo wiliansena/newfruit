@@ -13,10 +13,11 @@
         <title>Lista de Produtos</title>
     </head>
     <body>
-        <form action="${pageContext.request.contextPath}/lista" method="post">
+        <form action="${pageContext.request.contextPath}/produtoBuscado" method="post">
             <label for="inputField">Pesquisar</label>
-            <input id="inputField" type="text" name="query">
-            <a href="${pageContext.request.contextPath}/produto/buscar/${produto.codbarra}">Buscar</a>
+           <input id="inputField" type="text" name="produto.codbarra"/>
+           
+            <button type="submit" >Buscar</button>
         </form>
         <c:choose>
             <c:when test="${produtoList.size() eq 0}"> 
@@ -28,10 +29,10 @@
                         <tr>
                             <th>Categoria</th>
                             <th>Codigo de barra</th>
-                            <th>Descricao</th>
+                            
                             <th>Nome</th>
                             <th>Preço</th>
-                            <th>Referencia</th>
+                            
                             <th>Quantidade</th>
                         </tr>
                     </thead>
@@ -40,10 +41,10 @@
                             <tr>
                                 <td>${produto.categoria}</td> 
                                 <td>${produto.codbarra}</td>
-                                <td>${produto.descricao}</td>
+                                
                                 <td>${produto.nome}</td> 
                                 <td>${produto.preco}</td>
-                                <td>${produto.referencia}</td>
+                                
                                 <td>${produto.quantidade}</td> 
                                 <td>
                                     <a href="${pageContext.request.contextPath}/produto/editar/${produto.codbarra}">Editar</a> ||
